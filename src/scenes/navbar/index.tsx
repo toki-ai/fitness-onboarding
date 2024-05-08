@@ -1,11 +1,14 @@
 import {useState} from 'react'
 import Logo from '@/assets/Logo.png'
+import Link from './Link';
+import { SelectPage } from '@/shared/type';
 
 type props = {
-
+  selectPage: SelectPage;
+  setSelectPage: (value : SelectPage) => void
 }
 
-const NavBar = (props : props) => {
+const NavBar = ({selectPage, setSelectPage} : props) => {
   const flexBetween = "flex items-center justify-between";
   return (
     <div className={`${flexBetween} top-0 fixed py-6 w-full`}>
@@ -13,10 +16,7 @@ const NavBar = (props : props) => {
         <img src={Logo} alt="logo" />
         <div className={`${flexBetween} w-full`}>
           <div className={`${flexBetween} gap-8`}>
-            <p>Home</p>
-            <p>Benefits</p>
-            <p>Our Classes</p>
-            <p>Contact Us</p>
+            <Link page="Home" selectPage = selectPage='' />
           </div>
           <div className={`${flexBetween} gap-8`}>
             <p>Sign in</p>
